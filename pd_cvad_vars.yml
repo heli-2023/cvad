@@ -1,0 +1,63 @@
+#
+Software_folder: 'C:\software'
+Citrix_Software: 'cmd /c curl -s -o C:\software\Citrix_Virtual_Apps_and_Desktops_7_2203_2000.iso   http://172.16.8.29/Citrix_Virtual_Apps_and_Desktops_7_2203_2000.iso'
+
+
+#############################################################################################
+OU_name: "Citrix Virtual Apps and Desktops"
+OU_name_path: "DC=roffice,DC=com,DC=cn"
+OU_Computers: "Cvad Computers"
+OU_Computers_path: "OU=Citrix Virtual Apps and Desktops,DC=roffice,DC=com,DC=cn"
+OU_Users: "Cvad Users"
+OU_Users_path: "OU=Citrix Virtual Apps and Desktops,DC=roffice,DC=com,DC=cn"
+#############################################################################################
+Active_Directory_features:
+  - {name: 'AD-Domain-Services'}
+  - {name: 'RSAT-AD-Tools'}
+#############################################################################################
+database_path: 'C:\Windows\NTDS'
+dns_domain_name: 'roffice.com.cn'
+domain_mode: 'Win2012R2'
+domain_netbios_name: 'ROFFICE'
+forest_mode: 'Win2012R2'
+safe_mode_password: 'p@ssw0rd'
+sysvol_path: 'C:\Windows\SYSVOL'  
+#############################################################################################
+domain_username: "Citrixadmin"
+domain_admin_username: "Citrixadmin@roffice.com.cn"
+domain_admin_password: "p@ssw0rd"
+domain_name: "roffice.com.cn"
+ou_path: "OU=Cvad Computers,OU=Citrix Virtual Apps and Desktops,DC=roffice,DC=com,DC=cn"
+User_ou_path: "OU=Cvad Users,OU=Citrix Virtual Apps and Desktops,DC=roffice,DC=com,DC=cn"  
+local_Administrators: "Administrators"
+#############################################################################################
+template: "PD_WindowsServer2022"
+system_storage: "HDD_LUN"
+system_zise: "80"
+data_storage: "HDD_LUN"
+data_zise: "20"
+vm_vcpu: "4"
+vm_memory: "4096"
+vm_network: "VM_Network_208"
+vm_netmask: "255.255.255.0"
+vm_gateway: "10.20.8.1"
+vm_dns_items:
+  - dns1: "10.20.8.50"
+    dns2: "10.20.8.50"
+###########################################################################################
+vms:
+  - name: DC0001
+    ip: 10.20.8.50
+  - name: SQL0001
+    ip: 10.20.8.51
+  - name: DDC0001
+    ip: 10.20.8.52
+  - name: SF0001
+    ip: 10.20.8.53
+  - name: EDEN-WEB0001
+    ip: 10.20.8.54
+  - name: EDEN-DC0001
+    ip: 10.20.8.55
+
+
+
